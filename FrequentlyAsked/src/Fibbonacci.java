@@ -3,7 +3,9 @@ public class Fibbonacci {
         int first =0;
         int second =1;
         System.out.println(first);
+        if (n>=1){
         System.out.println(second);
+        }
         for(int i =2;i<n;i++){
 
             int temp = first;
@@ -14,7 +16,7 @@ public class Fibbonacci {
     }
 
     public static void main(String[] args) {
-        int n = 10;
+        int n = 3;
         fib(n);
     }
 }

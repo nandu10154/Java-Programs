@@ -1,8 +1,10 @@
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Stringoccurence {
     public static void main(String[] args) {
-        String str = "nandun";
+        String str = "Nandu";
+        str = str.toLowerCase();
         HashMap<Character,Integer> map = new HashMap<>();
         for(int i =0;i<str.length();i++){
             char ch = str.charAt(i);
@@ -16,6 +18,7 @@ public class Stringoccurence {
         for (char ch:map.keySet()){
             System.out.println(ch +":"+map.get(ch));
         }
+        System.out.println(map);
 
     }
 }
