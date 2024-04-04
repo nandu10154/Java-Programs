@@ -53,7 +53,30 @@ public class Streamex {
 // join the string seperated by ,
         String join = words.stream().collect(Collectors.joining(","));
         System.out.println(join);
-//
+
+// print the count of the strings which are having length greater than 5
+
+        System.out.println("print the count of the strings which are having length greater than 5");
+        List<String> strings = Arrays.asList("Welcome","to","my","family","dead","inside");
+        int count = (int) strings.stream().filter(e->e.length()>5).count();
+        List<String> ge = strings.stream().filter(e->e.length()>5).collect(Collectors.toList());
+        System.out.println(ge);
+        System.out.println(count);
+
+//        usge of anymatch and all match
+        List<Integer> intlist = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        boolean divisibleby2 = intlist.stream().allMatch(e->e%2 == 0);
+        System.out.println("all the numbers are  divisible by 2 " +divisibleby2);
+        boolean any = intlist.stream().anyMatch(e->e%2==0);
+        System.out.println("any one of number is divisible by 2 " + any);
+// count the each charecter
+
+        String s = "Nandu";
+        s = s.toLowerCase();
+        Map<String,Long> map = Arrays.stream(s.split("")).collect(Collectors.groupingBy(e->e,Collectors.counting()));
+        System.out.println(map);
+        Map<String,Long> map1 = Arrays.stream(s.split("")).collect(Collectors.groupingBy(e->e,Collectors.counting()));
+
 
     }
 }
