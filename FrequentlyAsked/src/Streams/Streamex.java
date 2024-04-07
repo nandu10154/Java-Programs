@@ -1,6 +1,7 @@
 package Streams;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -77,6 +78,19 @@ public class Streamex {
         System.out.println(map);
         Map<String,Long> map1 = Arrays.stream(s.split("")).collect(Collectors.groupingBy(e->e,Collectors.counting()));
 
+// print the duplicates
+        String[] array = {"apple", "banana", "apple", "orange", "banana", "mango", "apple"};
 
+        // Count occurrences of each string
+        Map<String, Long> counts = Arrays.stream(array)
+                .collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        System.out.println(counts);
+
+        // Print duplicates
+        System.out.println("Duplicates:");
+        Arrays.stream(array).distinct().filter(e-> Collections.frequency(Arrays.asList(array),e)>1).forEach(System.out::println);
+        counts.entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .forEach(entry -> System.out.println(entry.getKey()));
     }
 }
